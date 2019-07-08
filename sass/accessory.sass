@@ -42,3 +42,27 @@
       font-weight: bold
       font-size: 14px
       color: #6B6B6B
+
+@media screen and (min-width: 1024px)
+  .accessory
+    padding-top: 30px
+    &__header
+      @include mixheader
+      font-size: 30px
+      line-height: 40px
+      font-weight: bold
+      border-bottom: 1px solid $c_border_menu
+      margin-bottom: 16px
+      display: inline
+    &__cats
+      justify-content: center
+  .slick-slider-block-accessory
+    .slide
+      width: 250px
+      max-width: 250px
+      margin: 20px 30px
+      &__img
+        max-width: 200px
+        width: 200px
+      img
+        width: 200px

@@ -1,11 +1,7 @@
 .seo-text
   padding: 16px 20px
   &__header
-    font-size: 30px
-    line-height: 40px
-    font-weight: bold
-    border-bottom: 1px solid $c_border_menu
-    margin-bottom: 16px
+    @include mixheader
   &__text
     font-size: 14px
     line-height: 22px
@@ -17,3 +13,9 @@
     font-weight: bold
     color: #505050
     cursor: pointer
+@media screen and (min-width: 1024px)
+  .seo-text
+    padding: 16px 0px
+    padding-top: 30px
+    &__header
+      display: inline

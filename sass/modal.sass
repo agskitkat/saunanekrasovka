@@ -1,0 +1,28 @@
+.modal
+  display: none
+  background-color: rgba(0,0,0,.5)
+  position: fixed
+  top: 0px
+  left: 0px
+  bottom: 0px
+  right: 0px
+  z-index: 1
+  align-items: center
+  justify-content: center
+  &__content
+    background-color: #FFf
+    width: 100vw
+    max-width: 425px
+    height: 100vh
+    max-height: 630px
+    overflow-y: scroll
+  &.active
+    display: flex
+  &__back
+    img
+      padding: 20px
+
+@media screen and (min-width: 1024px)
+  .modal
+    &__content
+      overflow-y: visible

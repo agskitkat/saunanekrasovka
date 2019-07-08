@@ -1,0 +1,55 @@
+.contacts
+  padding: 30px 20px
+  text-align: center
+  &__header
+    @include mixheader
+  &__address
+    font-weight: bold
+    font-size: 16px
+    line-height: 25px
+    padding-bottom: 24px
+  &__phone
+    font-weight: bold
+    font-size: 20px
+  &__worktime
+    font-size: 14px
+    font-weight: normal
+  &_menu
+    font-weight: bold
+    font-size: 16px
+  &__menu-u
+    display: flex
+    flex-wrap: wrap
+    width: 220px
+    margin: 20px auto
+    li
+      width: 50%
+      text-align: left
+      font-weight: bold
+      font-size: 14px
+      margin-bottom: 5px
+  &__text
+    font-size: 14px
+    font-weight: bold
+    padding-bottom: 17px
+  &__images
+    display: flex
+    justify-content: center
+    img
+      margin: 0 5px
+
+@media screen and (min-width: 1024px)
+  .contacts
+    &__header
+      display: inline
+    &__email
+      display: none
+    &__social
+      display: none
+    &__images
+      display: none
+    &__menu
+      display: none
+    &__address
+      width: 255px
+      margin: 0 auto
