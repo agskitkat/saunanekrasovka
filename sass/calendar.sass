@@ -1,0 +1,44 @@
+.calendar
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25)
+  border-radius: 3px
+  padding: 30px 25px
+  max-width: 280px
+  margin: 0 auto
+  &__month-row
+    display: flex
+    justify-content: space-between
+    margin: 0 auto
+    width: 80%
+  &__month_disallow
+    opacity: 0.5
+    cursor: initial
+  &__month_preview
+    transform: rotate(180deg)
+  &__week-row
+    display: flex
+  &__week-row_header
+    padding-top: 15px
+    font-weight: bold
+    font-size: 10px
+    .calendar__col:hover
+      border: 1px solid #FFF
+      cursor: initial
+  &__col
+    width: calc(100% / 7)
+    text-align: center
+    height: 33px
+    border-radius: 5px
+    display: flex
+    justify-content: center
+    align-items: center
+    &:hover
+      border: 1px solid #D00
+      cursor: pointer
+  &__col_disallow
+    opacity: 0.5
+    cursor: initial
+    &:hover
+      border: 1px solid #FFF
+      cursor: initial
+  &__col_weekend
+    color: #EA526C
