@@ -85,8 +85,8 @@
                         </div>
                         <div class="item__info-more">За каждого дополнительного гостя в номерах взимается плата в размере 100 руб. с человека в час.</div>
                     </div>
-                    <a href="#" class="item__more btn green item__read-more-btn">Подробнее</a>
-                    <a href="#" class="item__more btn green item__reserve">ЗАБРОНИРОВАТЬ</a>
+                    <a href="#" class="item__more btn green item__read-more-btn js-target-open-sauna">Подробнее</a>
+                    <a href="#" class="item__more btn green item__reserve js-target-open-order">ЗАБРОНИРОВАТЬ</a>
                 </div>
             </div>
         </div>
@@ -304,10 +304,12 @@
     </div>
 </footer>
 
-<div class="modal">
+
+
+<div class="modal js-target-sauna">
     <div class="modal__content">
         <div class="modal__back">
-            <img src="../img/svg/arrow-back.svg" alt="">
+            <img class="js-target-close-modal" src="../img/svg/arrow-back.svg" alt="">
         </div>
         <div class="sauna">
             <div class="sauna__image">
@@ -343,16 +345,14 @@
                     </div>
                     <div class="sauna__info-more">За каждого дополнительного гостя в номерах взимается плата в размере 100 руб. с человека в час.</div>
                 </div>
-                <a href="#" class="sauna__more btn green sauna__reserve">ЗАБРОНИРОВАТЬ</a>
+                <a href="#" class="sauna__more btn green sauna__reserve js-target-open-order">ЗАБРОНИРОВАТЬ</a>
             </div>
         </div>
 
     </div>
 </div>
 
-
-
-<div class="modal active">
+<div class="modal js-target-order">
     <div class="modal__content">
         <div class="modal__back">
             <img src="../img/svg/arrow-back.svg" alt="">
@@ -362,7 +362,7 @@
                 Шаг 1 из 4
             </div>
 
-            <div class="steps_step step">
+            <div class="steps_step step step_active">
                 <div class="step__header">
                     Выберите дату
                 </div>
@@ -449,16 +449,16 @@
                 <div class="time-picker">
                     <div class="time-picker__pikers">
                         <div class="time-picker__roll-wrap">
-                            <span class="time-picker__roll-header">c</span>
-                            <div class="time-picker__roll">
-                                <div class="time-picker__roll-block"></div>
-                            </div>
+                            <div class="time-picker__xhead">с</div>
+                            <select class="time-picker__select">
+
+                            </select>
                         </div>
                         <div class="time-picker__roll-wrap">
-                            <span class="time-picker__roll-header">до</span>
-                            <div class="time-picker__roll">
-                                <div class="time-picker__roll-block"></div>
-                            </div>
+                            <div class="time-picker__xhead">до</div>
+                            <select  class="time-picker__select">
+
+                            </select>
                         </div>
                     </div>
                     <div class="time-picker__min-hour">
@@ -499,7 +499,7 @@
                 </div>
             </div>
 
-            <div class="steps_step step step_active">
+            <div class="steps_step step ">
                 <div class="step__header">
                     Забронировать баню
                 </div>
@@ -517,8 +517,31 @@
 
             </div>
 
+            <div class="steps_step step">
+
+                <div class="end-order">
+                    <div class="align-center">
+                        <img class="end-order__header" src="../img/plane.png" alt="">
+                    </div>
+                    <div class="end-order__thx">
+                        Спасибо!
+                    </div>
+                    <div class="end-order__info">
+                        <p>За вами забронирована</p>
+                        <p><b>Баня №7</b></p>
+                        <p>Дата: 19 Марта 2019 / 19:00 - 20:00</p>
+                        <p>Количество гостей: 5</p>
+                        <p>Итого: 3 000 руб.</p>
+                    </div>
+                    <div class="end-order__text">
+                        В течении нескольких минут с вами свяжется менеджер для подтверждения брони
+                    </div>
+                </div>
+
+            </div>
+
             <div class="steps__next">
-                <a href="#" class="sauna__more btn green sauna__reserve">Далее</a>
+                <a href="#" class="sauna__more btn green sauna__reserve js-target-next-step">Далее</a>
             </div>
         </div>
     </div>
