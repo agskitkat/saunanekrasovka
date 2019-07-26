@@ -2,6 +2,7 @@ $(function(){
     console.log("Slick")
     $('.slick-slider-block').slick({
         arrows: true,
+        lazyLoad: 'ondemand',
         responsive: [
             {
                 breakpoint: 1024,
@@ -29,7 +30,7 @@ $(function(){
         centerMode: true,
         variableWidth: true,
         dots: false,
-
+        lazyLoad: 'ondemand',
         arrows: true,
         responsive: [
             {
