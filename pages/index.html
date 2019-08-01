@@ -354,7 +354,7 @@
 
 <div class="modal js-target-order">
     <div class="modal__content">
-        <div class="modal__back">
+        <div class="modal__back js-target-back-step">
             <img src="../img/svg/arrow-back.svg" alt="">
         </div>
         <div class="steps">
@@ -362,14 +362,13 @@
                 Шаг 1 из 4
             </div>
 
-            <div class="steps_step step step_active">
+            <div id="step-1" class="steps_step step step_active">
                 <div class="step__header">
                     Выберите дату
                 </div>
                 <div class="step__info">
                     Баня №7
                 </div>
-
                 <div class="step__calendar calendar">
                     <div class="calendar__month-row">
                         <img src="../img/svg/arrow-calendar.svg" alt="" class="calendar__month calendar__month_preview">
@@ -385,62 +384,13 @@
                         <div class="calendar__col calendar__col_weekend">сб</div>
                         <div class="calendar__col calendar__col_weekend">вс</div>
                     </div>
-
                     <div class="calendar__weeks">
-                        <div class="calendar__week-row">
-                            <div class="calendar__col calendar__col_disallow">1</div>
-                            <div class="calendar__col calendar__col_disallow">2</div>
-                            <div class="calendar__col calendar__col_disallow">3</div>
-                            <div class="calendar__col calendar__col_disallow">4</div>
-                            <div class="calendar__col calendar__col_disallow">5</div>
-                            <div class="calendar__col calendar__col_weekend calendar__col_disallow">6</div>
-                            <div class="calendar__col calendar__col_weekend calendar__col_disallow">7</div>
-                        </div>
 
-                        <div class="calendar__week-row">
-                            <div class="calendar__col calendar__col_disallow">8</div>
-                            <div class="calendar__col calendar__col_disallow">9</div>
-                            <div class="calendar__col calendar__col_disallow">10</div>
-                            <div class="calendar__col">11</div>
-                            <div class="calendar__col">12</div>
-                            <div class="calendar__col calendar__col_weekend">13</div>
-                            <div class="calendar__col calendar__col_weekend">14</div>
-                        </div>
-
-                        <div class="calendar__week-row">
-                            <div class="calendar__col">15</div>
-                            <div class="calendar__col">16</div>
-                            <div class="calendar__col">17</div>
-                            <div class="calendar__col">18</div>
-                            <div class="calendar__col">19</div>
-                            <div class="calendar__col calendar__col_weekend">20</div>
-                            <div class="calendar__col calendar__col_weekend">21</div>
-                        </div>
-
-                        <div class="calendar__week-row">
-                            <div class="calendar__col">22</div>
-                            <div class="calendar__col">23</div>
-                            <div class="calendar__col">24</div>
-                            <div class="calendar__col">25</div>
-                            <div class="calendar__col">26</div>
-                            <div class="calendar__col calendar__col_weekend">27</div>
-                            <div class="calendar__col calendar__col_weekend">28</div>
-                        </div>
-
-                        <div class="calendar__week-row">
-                            <div class="calendar__col">29</div>
-                            <div class="calendar__col">30</div>
-                            <div class="calendar__col">31</div>
-                            <div class="calendar__col calendar__col_disallow"></div>
-                            <div class="calendar__col calendar__col_disallow"></div>
-                            <div class="calendar__col calendar__col_weekend calendar__col_disallow"></div>
-                            <div class="calendar__col calendar__col_weekend calendar__col_disallow"></div>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="steps_step step">
+            <div id="step-2" class="steps_step step">
                 <div class="step__header">
                     Выберите время
                 </div>
@@ -476,7 +426,7 @@
 
             </div>
 
-            <div class="steps_step step">
+            <div id="step-3" class="steps_step step">
                 <div class="step__header">
                     Количество гостей
                 </div>
@@ -501,7 +451,7 @@
                 </div>
             </div>
 
-            <div class="steps_step step">
+            <div id="step-4" class="steps_step step">
                 <div class="step__header">
                     Забронировать баню
                 </div>
@@ -519,7 +469,7 @@
 
             </div>
 
-            <div class="steps_step step">
+            <div id="step-6" class="steps_step step">
 
                 <div class="end-order">
                     <div class="align-center">
