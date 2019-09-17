@@ -1,14 +1,15 @@
 $(function(){
-    console.log("Slick")
+
     $('.slick-slider-block').slick({
         arrows: true,
         lazyLoad: 'ondemand',
+
+        slidesToShow: 1,
+        slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
                     infinite: true,
                     dots: false,
                     arrows: false
@@ -16,8 +17,6 @@ $(function(){
             }, {
                 breakpoint: 1,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
                     infinite: true,
                     dots: false,
                     arrows: false
