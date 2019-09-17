@@ -1,11 +1,12 @@
 (function( $ ){
-    $.fn.calendar = function() {
+
+    $.fn.calendar = function(callback) {
         var date = new Date();
         var now_year = 0;
         var now_month = 0;
         var now_date = 0;
 
-        this.each(function(key, elem) {
+        return this.each(function(key, elem) {
             var calendar = $(elem);
             now_year = date.getFullYear();
             now_month = date.getMonth();
@@ -20,6 +21,18 @@
                 monthShift(1);
             });
 
+            calendar.on("click", ".calendar__col", function(element) {
+                element = $(this);
+                if(element.is(":not(.calendar__col_disallow)")) {
+                    calendar.find(".calendar__col_current").removeClass("calendar__col_current");
+                    element.addClass("calendar__col_current");
+                    if (typeof callback == 'function') {
+                        var num = parseInt(element.html());
+                        var result_date = new Date(now_year, now_month, num);
+                        callback(result_date);
+                    }
+                }
+            });
 
             function monthShift(direction) {
                 date.setMonth(date.getMonth() + direction);
@@ -69,7 +82,6 @@
                 calendar.find(".calendar__weeks").html("");
                 calendar.find(".calendar__now-my").html(dateToMonthStr(date.getMonth()) +" "+ date.getFullYear());
 
-
                 // Определения начала дня месяца, добавления пустых ячеек
                 var start_week_day = date.getDay();
                 if(start_week_day === 0 ) {
@@ -82,7 +94,7 @@
                 var colBusy = 0;
                 while(date.getMonth() === m ) { // || colBusy !== 0
                     var num_date = date.getDate();
-                    //console.log(date.getDate());
+                    // console.log(date.getDate());
                     // В строке 7 ячеек (в неделе 7 дней)
                     if(colBusy === 0) {
                         row = createRow(); // Создаём строку и определяем её контекст
