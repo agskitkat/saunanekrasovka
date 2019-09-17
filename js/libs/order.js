@@ -7,13 +7,11 @@ $(function() {
     });
 
     $(".time-picker").timepicker();
-    $(".calendar").calendar();
 
     var steps = 1;
     var end_steps = 4;
 
     $(".js-target-next-step").click(function(){
-        $(this).closest(".steps")
 
         var steps_container = $(this).closest(".steps");
         steps_container.find(".step_active").removeClass("step_active");
