@@ -12,15 +12,19 @@
 .logo-block
   border-bottom: 1px solid $c_border
   padding-bottom: 6px
-  &__logo
-    font-weight: bold
-    font-size: 24px
-    line-height: 32px
-    padding-top: 16px
-  &__text
-    font-size: 10px
-    line-height: 13px
-    color: $c_header-text
+  &__image
+    display: none
+  &__image_mobile
+    display: block
+  //&__logo
+  //  font-weight: bold
+  //  font-size: 24px
+  //  line-height: 32px
+  //  padding-top: 16px
+  //&__text
+  //  font-size: 10px
+  //  line-height: 13px
+  //  color: $c_header-text
 
 .contacts
   &__phone
@@ -42,11 +46,15 @@
       align-items: flex-start
     .logo-block
       border-bottom: 0px
-      &__logo
-        font-size: 30px
-      &__text
-        font-size: 14px
-        line-height: 18px
+      &__image
+        display: block
+      &__image_mobile
+        display: none
+      //&__logo
+      //  font-size: 30px
+      //&__text
+      //  font-size: 14px
+      //  line-height: 18px
     &__contacts
       flex-direction: column
       align-items: flex-end
