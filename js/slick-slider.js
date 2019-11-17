@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
     console.log("Slick")
     $('.slick-slider-block').slick({
         arrows: true,
