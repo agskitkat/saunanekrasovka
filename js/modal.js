@@ -101,9 +101,16 @@ $(function(){
 
         var sid = $(this).attr('data-sauna-id');
 
-        console.log(sid);
+        console.log(sid, $("#current-sauna-id"));
+
+        $("#current-sauna-id").val(sid).trigger('change');
 
         $('.js-target-order #sauna_currnt option[value="'+sid+'"]').prop('selected', true);
+
+        /*if(sid) {
+            $('.steps-form .step-form.active').removeClass('active');
+            $('.steps-form .step-form.step-1').addClass('active');
+        }*/
     });
 
 

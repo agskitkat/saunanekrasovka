@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap&subset=cyrillic-ext" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap&subset=cyrillic-ext" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/production/styles.min.css">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -26,12 +27,15 @@
             -->
         </div>
         <div class="header__contacts">
-            <img src="/img/svg/menu-mobile.svg" alt="" class="contacts__menu-link js-event-open-menu">
+            <img src="/img/svg/menu-mobile.svg" alt="" class="contacts__menu-link" id="js-event-open-menu">
             <div class="contacts__phone">8 (495) 706-85-97</div>
             <div class="contacts__email">info@banynekrasovka.ru</div>
         </div>
     </header>
     <nav class="menu">
+        <div class="menu__close" id="js-event-close-menu">
+            <img src="/img/svg/arrow-back.svg">
+        </div>
         <ul class="menu__block">
             <li class="menu__item"><a href="#" class="menu__link">Баня</a></li>
             <li class="menu__item"><a href="#" class="menu__link">Сауна</a></li>
@@ -66,12 +70,18 @@
                         <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
                     </div>
                 </div>
+            
                 <div class="item__info">
                     <div class="item__name-row">
-                        <div class="item__header">
-                            Баня №1 <div class="item__status">vip</div>
+                        <div class="item__name-status">
+                            <div class="item__header">
+                                Баня №1 <div class="item__status">vip</div>
+                            </div>
+                            <div class="item__available">
+                                свободно
+                            </div>
                         </div>
-                        <div class="item__price">1 499 руб./час <span class="item__max-guests">мин. заказ 2 часа</span></div>
+                        <div class="item__price"><div>1 499 руб./час</div> <span class="item__max-guests">мин. заказ 2 часа</span></div>
                     </div>
                     <div class="item__information">
                         <span class="item__info-header">В стоимость входит:</span>
@@ -93,130 +103,329 @@
                         </div>
                         <div class="item__info-more">За каждого дополнительного гостя в номерах взимается плата в размере 100 руб. с человека в час.</div>
                     </div>
-                    <a href="#" class="item__more btn green item__read-more-btn js-target-open-sauna">Забронировать</a>
-                    <a href="#" class="item__more btn green item__reserve js-target-open-order">ЗАБРОНИРОВАТЬ</a>
+                    <div class="item__buttons">
+                        <a href="#" class="item__more btn green item__read-more-btn js-target-open-sauna">Забронировать</a>
+                        <a href="#" class="item__more btn green item__reserve js-target-open-order">Забронировать</a>
+                        <a href="tel:000" class="item__more btn green item__phonecall">Позвонить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sauna-list__item item">
+                <div class="item__image">
+                    <div class="slick-slider-block">
+                        <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
+                        <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
+                    </div>
+                </div>
+            
+                <div class="item__info">
+                    <div class="item__name-row">
+                        <div class="item__name-status">
+                            <div class="item__header">
+                                Баня №1 <div class="item__status">vip</div>
+                            </div>
+                            <div class="item__available">
+                                свободно
+                            </div>
+                        </div>
+                        <div class="item__price"><div>1 499 руб./час</div> <span class="item__max-guests">мин. заказ 2 часа</span></div>
+                    </div>
+                    <div class="item__information">
+                        <span class="item__info-header">В стоимость входит:</span>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-more">За каждого дополнительного гостя в номерах взимается плата в размере 100 руб. с человека в час.</div>
+                    </div>
+                    <div class="item__buttons">
+                        <a href="#" class="item__more btn green item__read-more-btn js-target-open-sauna">Забронировать</a>
+                        <a href="#" class="item__more btn green item__reserve js-target-open-order">Забронировать</a>
+                        <a href="tel:000" class="item__more btn green item__phonecall">Позвонить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sauna-list__item item">
+                <div class="item__image">
+                    <div class="slick-slider-block">
+                        <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
+                        <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
+                    </div>
+                </div>
+            
+                <div class="item__info">
+                    <div class="item__name-row">
+                        <div class="item__name-status">
+                            <div class="item__header">
+                                Баня №1 <div class="item__status">vip</div>
+                            </div>
+                            <div class="item__available">
+                                свободно
+                            </div>
+                        </div>
+                        <div class="item__price"><div>1 499 руб./час</div> <span class="item__max-guests">мин. заказ 2 часа</span></div>
+                    </div>
+                    <div class="item__information">
+                        <span class="item__info-header">В стоимость входит:</span>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-more">За каждого дополнительного гостя в номерах взимается плата в размере 100 руб. с человека в час.</div>
+                    </div>
+                    <div class="item__buttons">
+                        <a href="#" class="item__more btn green item__read-more-btn js-target-open-sauna">Забронировать</a>
+                        <a href="#" class="item__more btn green item__reserve js-target-open-order">Забронировать</a>
+                        <a href="tel:000" class="item__more btn green item__phonecall">Позвонить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sauna-list__item item">
+                <div class="item__image">
+                    <div class="slick-slider-block">
+                        <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
+                        <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
+                    </div>
+                </div>
+            
+                <div class="item__info">
+                    <div class="item__name-row">
+                        <div class="item__name-status">
+                            <div class="item__header">
+                                Баня №1 <div class="item__status">vip</div>
+                            </div>
+                            <div class="item__available">
+                                свободно
+                            </div>
+                        </div>
+                        <div class="item__price"><div>1 499 руб./час</div> <span class="item__max-guests">мин. заказ 2 часа</span></div>
+                    </div>
+                    <div class="item__information">
+                        <span class="item__info-header">В стоимость входит:</span>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-more">За каждого дополнительного гостя в номерах взимается плата в размере 100 руб. с человека в час.</div>
+                    </div>
+                    <div class="item__buttons">
+                        <a href="#" class="item__more btn green item__read-more-btn js-target-open-sauna">Забронировать</a>
+                        <a href="#" class="item__more btn green item__reserve js-target-open-order">Забронировать</a>
+                        <a href="tel:000" class="item__more btn green item__phonecall">Позвонить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sauna-list__item item">
+                <div class="item__image">
+                    <div class="slick-slider-block">
+                        <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
+                        <div class="item__image-bg" style="background-image: url('../img/sauna.png')"></div>
+                    </div>
+                </div>
+            
+                <div class="item__info">
+                    <div class="item__name-row">
+                        <div class="item__name-status">
+                            <div class="item__header">
+                                Баня №1 <div class="item__status">vip</div>
+                            </div>
+                            <div class="item__available">
+                                свободно
+                            </div>
+                        </div>
+                        <div class="item__price"><div>1 499 руб./час</div> <span class="item__max-guests">мин. заказ 2 часа</span></div>
+                    </div>
+                    <div class="item__information">
+                        <span class="item__info-header">В стоимость входит:</span>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-row">
+                            <div class="item__info-key">Простыня</div>
+                            <div class="item__info-value">Купель: 5х5 м</div>
+                        </div>
+                        <div class="item__info-more">За каждого дополнительного гостя в номерах взимается плата в размере 100 руб. с человека в час.</div>
+                    </div>
+                    <div class="item__buttons">
+                        <a href="#" class="item__more btn green item__read-more-btn js-target-open-sauna">Забронировать</a>
+                        <a href="#" class="item__more btn green item__reserve js-target-open-order">Забронировать</a>
+                        <a href="tel:000" class="item__more btn green item__phonecall">Позвонить</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="desktop-main-page-block">
+            <div class="accessory">
+                <div class="align-center">
+                    <div class="accessory__header">Банные аксессуары</div>
+                    <div class="accessory__text">Какая баня без хорошего березового или елового веника</div>
+                </div>
+                <div class="accessory__cats">
+                    <div class="accessory__cat">Для Мужчин</div>
+                    <div class="accessory__cat">Для Женщин</div>
+                </div>
+                <div class="slick-slider-block-accessory">
+                    <div class="slide">
+                        <img src="/img/dub.png" alt="" class="slide__img">
+                        <div class="slide__header">Веник дубовый</div>
+                        <div class="slide__price">300 руб.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="/img/moj.png" alt="" class="slide__img">
+                        <div class="slide__header">Веник можжевеловый</div>
+                        <div class="slide__price">300 руб.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="/img/dub.png" alt="" class="slide__img">
+                        <div class="slide__header">Банная шапка</div>
+                        <div class="slide__price">400 руб. </div>
+                    </div>
+                </div>
+
+
+                <div class="slick-slider-block-accessory slick-slider-block-accessory_active">
+                    <div class="slide">
+                        <img src="/img/dub.png" alt="" class="slide__img">
+                        <div class="slide__header">Веник дубовый</div>
+                        <div class="slide__price">300 руб.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="/img/dub.png" alt="" class="slide__img">
+                        <div class="slide__header">Веник можжевеловый</div>
+                        <div class="slide__price">300 руб.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="/img/dub.png" alt="" class="slide__img">
+                        <div class="slide__header">Банная шапка</div>
+                        <div class="slide__price">400 руб. </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="restaurant">
+                <div class="restaurant__first-text">
+                    Березовый, дубовый, еловый веничек — выбирайте любой по собственному предпочтению! Впрочем, шапочки, полотенца, гели, скрабы для тела с собой брать также нет необходимости. Готовы все предоставить на месте, чтобы отдых в сауне в Москве был поистине спокойным. Горячий пар в сочетании с прохладной купелью — рай для любого городского жителя. Впрочем, если вы знаете номер телефона нашей сауны в Москве, то уже убедились в превосходном сервисе, несравнимым ни с чем. Все, что пожелает ваша душа в наших парных — лишь вопрос пожелания, предзаказа клиента. Сауна в Москве подарит отдых телу, перезагрузку душе.
+                </div>
+                <div class="restaurant__image"></div>
+                <div class="align-center">
+                    <div class="restaurant__header">Меню ресторана</div>
+                </div>
+                <div class="restaurant__list">
+                    <div class="restaurant__item">
+                        <div class="restaurant__item-header">Пиво</div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                    </div>
+                    <div class="restaurant__item">
+                        <div class="restaurant__item-header">Пиво</div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                    </div>
+                    <div class="restaurant__item">
+                        <div class="restaurant__item-header">Пиво</div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                        <div class="restaurant__item-row">
+                            <div class="restaurant__item-value">0,5 л</div>
+                            <div class="restaurant__item-name">Жигулевское барное</div>
+                            <div class="restaurant__item-price">50 руб.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="restaurant__last-text">
+                    Березовый, дубовый, еловый веничек — выбирайте любой по собственному предпочтению! Впрочем, шапочки, полотенца, гели, скрабы для тела с собой брать также нет необходимости. Готовы все предоставить на месте, чтобы отдых в сауне в Москве был поистине спокойным. Горячий пар в сочетании с прохладной купелью — рай для любого городского жителя. Впрочем, если вы знаете номер телефона нашей сауны в Москве, то уже убедились в превосходном сервисе, несравнимым ни с чем. Все, что пожелает ваша душа в наших парных — лишь вопрос пожелания, предзаказа клиента. Сауна в Москве подарит отдых телу, перезагрузку душе.
                 </div>
             </div>
         </div>
 
-        <div class="accessory">
-            <div class="align-center">
-                <div class="accessory__header">Банные аксессуары</div>
-                <div class="accessory__text">Какая баня без хорошего березового или елового веника</div>
-            </div>
-            <div class="accessory__cats">
-                <div class="accessory__cat">Для Мужчин</div>
-                <div class="accessory__cat">Для Женщин</div>
-            </div>
-            <div class="slick-slider-block-accessory">
-                <div class="slide">
-                    <img src="/img/dub.png" alt="" class="slide__img">
-                    <div class="slide__header">Веник дубовый</div>
-                    <div class="slide__price">300 руб.</div>
-                </div>
-                <div class="slide">
-                    <img src="/img/moj.png" alt="" class="slide__img">
-                    <div class="slide__header">Веник можжевеловый</div>
-                    <div class="slide__price">300 руб.</div>
-                </div>
-                <div class="slide">
-                    <img src="/img/dub.png" alt="" class="slide__img">
-                    <div class="slide__header">Банная шапка</div>
-                    <div class="slide__price">400 руб. </div>
-                </div>
-            </div>
+        <div class="mobile-main-page-block">
 
-
-            <div class="slick-slider-block-accessory slick-slider-block-accessory_active">
-                <div class="slide">
-                    <img src="/img/dub.png" alt="" class="slide__img">
-                    <div class="slide__header">Веник дубовый</div>
-                    <div class="slide__price">300 руб.</div>
-                </div>
-                <div class="slide">
-                    <img src="/img/dub.png" alt="" class="slide__img">
-                    <div class="slide__header">Веник можжевеловый</div>
-                    <div class="slide__price">300 руб.</div>
-                </div>
-                <div class="slide">
-                    <img src="/img/dub.png" alt="" class="slide__img">
-                    <div class="slide__header">Банная шапка</div>
-                    <div class="slide__price">400 руб. </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="restaurant">
-            <div class="restaurant__first-text">
-                Березовый, дубовый, еловый веничек — выбирайте любой по собственному предпочтению! Впрочем, шапочки, полотенца, гели, скрабы для тела с собой брать также нет необходимости. Готовы все предоставить на месте, чтобы отдых в сауне в Москве был поистине спокойным. Горячий пар в сочетании с прохладной купелью — рай для любого городского жителя. Впрочем, если вы знаете номер телефона нашей сауны в Москве, то уже убедились в превосходном сервисе, несравнимым ни с чем. Все, что пожелает ваша душа в наших парных — лишь вопрос пожелания, предзаказа клиента. Сауна в Москве подарит отдых телу, перезагрузку душе.
-            </div>
-            <div class="restaurant__image"></div>
-            <div class="align-center">
-                <div class="restaurant__header">Меню ресторана</div>
-            </div>
-            <div class="restaurant__list">
-                <div class="restaurant__item">
-                    <div class="restaurant__item-header">Пиво</div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                </div>
-                <div class="restaurant__item">
-                    <div class="restaurant__item-header">Пиво</div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                </div>
-                <div class="restaurant__item">
-                    <div class="restaurant__item-header">Пиво</div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                    <div class="restaurant__item-row">
-                        <div class="restaurant__item-value">0,5 л</div>
-                        <div class="restaurant__item-name">Жигулевское барное</div>
-                        <div class="restaurant__item-price">50 руб.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="restaurant__last-text">
-                Березовый, дубовый, еловый веничек — выбирайте любой по собственному предпочтению! Впрочем, шапочки, полотенца, гели, скрабы для тела с собой брать также нет необходимости. Готовы все предоставить на месте, чтобы отдых в сауне в Москве был поистине спокойным. Горячий пар в сочетании с прохладной купелью — рай для любого городского жителя. Впрочем, если вы знаете номер телефона нашей сауны в Москве, то уже убедились в превосходном сервисе, несравнимым ни с чем. Все, что пожелает ваша душа в наших парных — лишь вопрос пожелания, предзаказа клиента. Сауна в Москве подарит отдых телу, перезагрузку душе.
-            </div>
         </div>
 
     </div>
 </div>
+
 <footer class="block-footer">
     <div class="footer container">
         <div class="howgo">
