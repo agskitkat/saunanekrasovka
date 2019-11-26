@@ -145,7 +145,8 @@ document.addEventListener("DOMContentLoaded",
 
         $("#js-do-order").click(function () {
             //var date = $('#dateVisit').val();
-            var sauna = $("#sauna_currnt").val();
+            var sauna = $("#current-sauna-id").val();
+            console.log(sauna);
             var hours = hors;
 
             var name = $("#input-name").val();

@@ -16,14 +16,16 @@
     border-bottom: 1px solid #E5E5E5
     &__information
       display: block
-      padding-top: 20px
+      padding-top: 13px
     &__info-header
       font-weight: bold
       font-size: 14px
+      margin-bottom: 12px
+      display: block
     &__info-row
       display: flex
-      padding-top: 10px
-      padding-bottom: 5px
+      padding-top: 3px
+      padding-bottom: 3px
     &__info-key
       width: 50%
     &__info-value
@@ -35,7 +37,7 @@
       min-height: 230px
     &__image-bg
       width: 100%
-      height: 230px
+      min-height: 230px
       background-repeat: no-repeat
       background-size: cover
       overflow: hidden
@@ -43,14 +45,18 @@
       align-items: center
       text-align: center
       img
-        width: auto
-        height: 100%
+        max-width: 100%
+        min-height: 230px
+        max-height: 300px
+        display: block
+        margin: 0 auto
     &__info
       width: 100%
       padding-left: 18px
-      padding-right: 8px
+      padding-right: 18px
     &__name-row
       padding-top: 10px
+      padding-bottom: 6px
       display: flex
       justify-content: space-between
       border-bottom: 1px solid #E5E5E5
@@ -66,7 +72,7 @@
     &__available
       font-weight: bold
       font-size: 10px
-      line-height: 25px
+      line-height: 20px
       color: #3DDB05
       position: relative
       padding-left: 15px
@@ -79,8 +85,8 @@
         height: 6px
         border-radius: 50%
         background-color: #3DDB05
-        left: 0px
-        top: 10px
+        left: 4px
+        top: 6px
     &__price
       font-weight: bold
       font-size: 16px
@@ -89,7 +95,7 @@
       display: block
       font-weight: bold
       font-size: 10px
-      line-height: 25px
+      line-height: 20px
       text-align: center
     &__reserve
       display: block
@@ -102,9 +108,8 @@
         color: #FFF
       .item__read-more-btn
         display: none
-      .item__reserve
     &__more
-      width: 128px
+      width: 132px
       height: 50px
       display: flex
       align-items: center
@@ -113,6 +118,18 @@
       background-color: #F9DB67
       color: #000
 
+@media screen and (min-width: 375px)
+  .sauna-list
+    &__name-row
+      padding-top: 13px
+      padding-bottom: 5px
+    .item__info
+
+      padding-left: 33px
+      padding-right: 33px
+    .item
+      &__more
+        width: 147px
 
 @media screen and (min-width: 1024px)
   .sauna-list

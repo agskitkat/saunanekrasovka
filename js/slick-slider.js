@@ -1,5 +1,4 @@
 $(function() {
-    console.log("Slick")
     $('.slick-slider-block').slick({
         arrows: true,
         lazyLoad: 'ondemand',
@@ -19,7 +18,7 @@ $(function() {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: false,
+                    dots: true,
                     arrows: false
                 }
             },
