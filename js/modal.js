@@ -6,7 +6,6 @@ $(function(){
         $(this).closest(".modal").removeClass("active");
     });
 
-
     // Открыть детально для мобилы
     $(".js-target-open-sauna").click( function(e){
         $('body').css({"overflow":"hidden"});
@@ -92,8 +91,6 @@ $(function(){
 
     });
 
-
-
     $(".js-target-open-order").click( function(e){
         $('body').css({"overflow":"hidden"});
         $(".js-target-sauna").removeClass("active");
@@ -101,16 +98,9 @@ $(function(){
 
         var sid = $(this).attr('data-sauna-id');
 
-        console.log(sid, $("#current-sauna-id"));
-
         $("#current-sauna-id").val(sid).trigger('change');
 
         $('.js-target-order #sauna_currnt option[value="'+sid+'"]').prop('selected', true);
-
-        /*if(sid) {
-            $('.steps-form .step-form.active').removeClass('active');
-            $('.steps-form .step-form.step-1').addClass('active');
-        }*/
     });
 
 

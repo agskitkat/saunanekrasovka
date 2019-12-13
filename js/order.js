@@ -1,3 +1,7 @@
+window.declOfNum = function(n, titles) {
+    return titles[(n % 10 === 1 && n % 100 !== 11) ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2];
+}
+
 document.addEventListener("DOMContentLoaded",
     function () {
         var lastStep = 2;
@@ -22,7 +26,6 @@ document.addEventListener("DOMContentLoaded",
             updateControls();
         });
 
-
         function updateControls() {
             if (lastStep === step) {
                 $('.steps-form #js-click-form-next').hide();
@@ -38,11 +41,10 @@ document.addEventListener("DOMContentLoaded",
             }
         }
 
-
         var picker = $('#datePicker').datetimepicker({
             date: new Date(),
             viewMode: 'YMD',
-            firstDayOfWeek: 1,
+            firstDayOfWeek: 0,
             language: 'ru',
             onDateChange: function () {
                 var d = this.getValue();
@@ -58,15 +60,10 @@ document.addEventListener("DOMContentLoaded",
             }
         });
 
-
         //new SimpleBar($("#time-table")[0]);
         var nowDay = [];
         var currentTime = "";
         reset();
-
-        /* $('#sauna_currnt').change(function(){
-             getTimeTable();
-         });*/
 
         $('#current-sauna-id').change(function () {
             console.log('current-sauna-id')
@@ -75,7 +72,7 @@ document.addEventListener("DOMContentLoaded",
 
         function getTimeTable() {
             /*var sauna = $("#sauna_currnt").val();*/
-           var sauna = $("#current-sauna-id").val();
+            var sauna = $("#current-sauna-id").val();
 
             reset();
 
@@ -98,9 +95,9 @@ document.addEventListener("DOMContentLoaded",
             });
         }
 
-
         var clickTimeTableNum = 0;
         var hors = 0;
+        var currentReal = "";
 
         $('#time-table').on('click', '.time-table__row.allowed', function () {
 
@@ -109,21 +106,23 @@ document.addEventListener("DOMContentLoaded",
                 $('#time-table .time-table__row.current').removeClass('current');
                 $(this).addClass('current');
                 currentTime = +$(this).attr('data-time');
-                //console.log("Ta", currentTime);
+                currentReal = +$(this).attr('data-real');
+
             } else {
+
                 clickTimeTableNum = 0;
                 $(this).addClass('current');
                 var timeB = +$(this).attr('data-time');
-                //console.log("Tb", timeB);
+                currentRealB = +$(this).attr('data-real');
 
+
+                //
                 if (currentTime < timeB) {
                     var cacheTime = currentTime;
                     currentTime = timeB;
                     timeB = cacheTime;
                 }
-
                 hors = currentTime - timeB;
-
                 // Нормализуем, если сначала указали конечное время
                 if (hors < 0) {
                     hors *= -1;
@@ -134,7 +133,27 @@ document.addEventListener("DOMContentLoaded",
                     $('#time-table .time-table__row').eq(i).addClass('current');
                 }
 
-                console.log("Заказано на :" + hors, "c " + timeB, "по  " + currentTime);
+
+                // Если время указано наоборот
+                var currentRealCashe = "";
+                if(currentReal > currentRealB) {
+                    currentRealCashe = currentReal;
+                    currentReal = currentRealB;
+                    currentRealB = currentRealCashe;
+                }
+
+                hors = (currentRealB - currentReal) / 60 / 60;
+                console.log("Заказано на :" + hors, "c " + currentReal, "по  " + currentRealB, (currentRealB - currentReal));
+
+                var error = "";
+                if(hors < 2) {
+                    error = "<div class='error'>Минимальное время бронирования<br> 2 часа !</div>";
+                    $('#js-click-form-next').hide();
+                } else {
+                    $('#js-click-form-next').show();
+                }
+
+                $("#time-table-info").html("Время бронирования " + hors + " " + window.declOfNum(hors, ['час', 'часа', 'часов']) + error);
 
                 currentTime = timeB;
 
@@ -152,11 +171,16 @@ document.addEventListener("DOMContentLoaded",
             var name = $("#input-name").val();
             var phone = $("#input-phone").val();
 
+            if(hours < 2) {
+                alert('Минимальное время бронирования 2 часа ! Вернитесь на шаг и укажите желаемое время.');
+                return false;
+            }
+
             if (date != "" && name != "" && phone != "") {
                 $.ajax({
                     url: '/wp-admin/admin-ajax.php',
                     type: 'POST',
-                    data: 'action=addOrder&date=' + date + '&sauna=' + sauna + '&currentTime=' + currentTime + "&hours=" + hours + "&phone=" + phone + "&name=" + name,
+                    data: 'action=addOrder&date=' + date + '&sauna=' + sauna + '&currentTime=' + currentReal + "&hours=" + hours + "&phone=" + phone + "&name=" + name,
                     beforeSend: function (xhr) {
                         //console.log('Загрузка, 5 сек...');
                     },
@@ -173,13 +197,13 @@ document.addEventListener("DOMContentLoaded",
                             $(stepform).find('.step-form.step-final').addClass('active');
                         } else {
                             alert("Возникла ошибка:" + result.e);
-                            console.log(currentTime, date, name, phone, result);
+                            console.log(currentReal, date, name, phone, result);
                         }
                     }
                 });
             } else {
-                alert("Проверьте правильность ввода данных.");
-                console.log(currentTime, date, name, phone);
+                alert("Проверьте правильность ввода имени и номера телефона.");
+                console.log(currentReal, date, name, phone);
             }
         });
 
@@ -203,20 +227,22 @@ document.addEventListener("DOMContentLoaded",
                     var text = "Свободно";
                     var time = i;
 
-                    if (i === 24) {
+                    if (i === 48) {
                         tt.append("<div class='time-table__row newday'>Следующий день</div>");
                     }
-                    if (time > 23) {
-                        time = i - 24;
+                    if (time > 47) {
+                        time = i - 48;
 
                     }
 
-                    if (!array[i]) {
+                    if (!array[i].test) {
                         var classDiv = "denay";
                         var text = "Занято";
                     }
                     /* tt.append("<div data-time='"+i+"' class='time-table__row "+classDiv+"'><span>"+time+":00</span><span>"+text+"</span></div>"); */
-                    tt.append("<div data-time='" + i + "' class='time-table__row " + classDiv + "'><span>" + time + ":00</span></div>");
+
+
+                    tt.append("<div data-time='" + i + "' data-real='" + array[i].time + "' class='time-table__row " + classDiv + "'><span>" + array[i].ftime + "</span></div>");
                 }
             } else {
                 tt.html("<div class='time-table__row error'>" + array.e + "</div>");

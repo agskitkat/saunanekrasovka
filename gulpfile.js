@@ -54,9 +54,6 @@ gulp.task('pages:watch', function () {
 
 gulp.task('js', function () {
     gulp.src(['js/libs/*.js', 'js/*.js',  'js/directives/*.js'])
-        //.pipe(uglify().on('error', function(e){
-         //   console.log(e);
-        //}))
         .pipe(concat('scripts.min.js'))
         .pipe(gulp.dest('production'))
         .pipe(reload({stream:true}));
