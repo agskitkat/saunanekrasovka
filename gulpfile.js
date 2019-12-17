@@ -37,7 +37,7 @@ gulp.task('sass', function () {
         .pipe(reload({stream:true}));
 });
 gulp.task('sass:watch', function () {
-    gulp.watch(['sass/*.sass', 'sass/modules/*.sass'], ['sass']);
+    gulp.watch(['sass/*.sass', 'sass/modules/*.sass', 'sass/libs/*.*'], ['sass']);
 });
 
 
