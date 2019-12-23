@@ -97,7 +97,11 @@ $(function(){
         $(".js-target-order").addClass("active");
 
         var sid = $(this).attr('data-sauna-id');
+        var name = $(this).attr('data-sauna-name');
 
+        console.log(sid, name);
+
+        $("#current-sauna-name").val(name);
         $("#current-sauna-id").val(sid).trigger('change');
 
         $('.js-target-order #sauna_currnt option[value="'+sid+'"]').prop('selected', true);

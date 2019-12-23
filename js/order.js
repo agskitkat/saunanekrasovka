@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded",
         request(date, 23);
 
         $('.steps-form #js-click-form-next').click(function () {
-            console.log(step);
             step++;
             $('.steps-form .step-form.active').removeClass('active');
             $('.steps-form .step-form.step-' + step).addClass('active');
@@ -34,6 +33,8 @@ document.addEventListener("DOMContentLoaded",
         });
 
         function updateControls() {
+            updateStatus();
+
             if (lastStep === step) {
                 $('.steps-form #js-click-form-next').hide();
                 $('.steps-form #js-click-form-back').show();
@@ -42,41 +43,7 @@ document.addEventListener("DOMContentLoaded",
                 $('.steps-form #js-click-form-next').show();
                 $('.steps-form #js-click-form-back').show();
             }
-
-            /*if (0 === step) {
-                $('.steps-form #js-click-form-back').hide();
-                $('.steps-form #js-click-form-next').show();
-            }*/
         }
-
-        /*var picker = $('#datePicker').datetimepicker({
-            date: new Date(),
-            viewMode: 'YMD',
-            firstDayOfWeek: 1,
-            language: 'ru',
-            onDateChange: function () {
-                var d = this.getValue();
-                if (d) {
-                    date = d.getFullYear() + "-" + (+d.getMonth() + 1) + "-" + d.getDate();
-                    getTimeTable();
-                } else {
-                    reset();
-                }
-            },
-            onClose: function () {
-                this.element.remove();
-            }
-        });*/
-
-       /* $.datetimepicker.setDateFormatter({
-            parseDate: function (date, format) {
-                var d = moment(date, format);
-                return d.isValid() ? d.toDate() : false;
-            },
-            formatDate: function (date, format) {
-                return moment(date).format(format);
-            },
-        });*/
 
         jQuery.datetimepicker.setLocale('ru');
         jQuery('#datePicker').datetimepicker({
@@ -86,6 +53,8 @@ document.addEventListener("DOMContentLoaded",
             inline: true,
             lang: 'ru',
             timepicker: false,
+            dayOfWeekStart: 1,
+            todayButton: false,
             onSelectDate: function (ct, $i)  {
                 var d = new Date(ct);
                 if (d) {
@@ -97,13 +66,43 @@ document.addEventListener("DOMContentLoaded",
             }
         });
 
+        function toReadebleTime(unix_timestamp) {
+            var date = new Date(unix_timestamp*1000);
+
+            console.log(data.format("yyyy-mm-dd").toString());
+
+            var hours = date.getHours();
+
+            var minutes = "0" + date.getMinutes();
+
+            return hours + ':' + minutes.substr(-2);
+        }
+
+        function updateStatus() {
+            console.log(step, hors, currentTime, date);
+            $('.status-info').html("");
+
+            var saunaName = $('#current-sauna-name').val();
+            $('.status-info').append(saunaName);
+
+            if(step > 0) {
+                $('.status-info').append(" / " + date);
+            }
+
+            if(step > 1) {
+                $('.status-info').append(" / " + toReadebleTime(currentReal) + " - " +  toReadebleTime(currentRealB)  );
+            }
+
+        }
+
         //new SimpleBar($("#time-table")[0]);
         var nowDay = [];
         var currentTime = "";
         reset();
 
         $('#current-sauna-id').change(function () {
-            console.log('current-sauna-id')
+            console.log('current-sauna-id');
+            updateStatus();
             getTimeTable();
         });
 
@@ -132,6 +131,7 @@ document.addEventListener("DOMContentLoaded",
         var clickTimeTableNum = 0;
         var hors = 0;
         var currentReal = "";
+        var currentRealB = "";
 
         $('#time-table').on('click', '.time-table__row.allowed', function () {
 
@@ -148,7 +148,6 @@ document.addEventListener("DOMContentLoaded",
                 $(this).addClass('current');
                 var timeB = +$(this).attr('data-time');
                 currentRealB = +$(this).attr('data-real');
-
 
                 //
                 if (currentTime < timeB) {
@@ -177,7 +176,7 @@ document.addEventListener("DOMContentLoaded",
                 }
 
                 hors = (currentRealB - currentReal) / 60 / 60;
-                console.log("Заказано на :" + hors, "c " + currentReal, "по  " + currentRealB, (currentRealB - currentReal));
+                console.log("Заказано на : " + hors, "c " + currentReal, "по  " + currentRealB, (currentRealB - currentReal));
 
                 var error = "";
                 if(hors < 2) {
@@ -187,7 +186,7 @@ document.addEventListener("DOMContentLoaded",
                     $('#js-click-form-next').show();
                 }
 
-                $("#time-table-info").html("Время бронирования " + hors + " часа,  " + window.declOfNum(hors, ['час', 'часа', 'часов']) + error);
+                $("#time-table-info").html("Время бронирования " + hors + " " + window.declOfNum(hors, ['час', 'часа', 'часов']) + error);
 
                 currentTime = timeB;
 
